@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="PublicWIFIInfo">
+    <output-path>$PROJECT_DIR$/out/artifacts/PublicWIFIInfo</output-path>
+    <root id="archive" name="PublicWIFIInfo_war.war">
+      <element id="artifact" artifact-name="PublicWIFIInfo:war exploded" />
+    </root>
+  </artifact>
+</component>
