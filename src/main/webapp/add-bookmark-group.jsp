@@ -1,11 +1,10 @@
-<%@ page import="java.sql.*" %>
-<%@ page import="com.amerikano.publicwifiinfo.DBManager" %>
+<%@ page import="com.amerikano.publicwifiinfo.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title></title>
-    <link rel="stylesheet" href="stylesheet.css">
-</head>
+    <head>
+        <title><%=GlobalConstant.appTitle%>></title>
+        <link rel="stylesheet" href="stylesheet.css">
+    </head>
 <body>
     <jsp:include page="header.jsp"/>
     <table>

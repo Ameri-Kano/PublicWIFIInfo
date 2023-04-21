@@ -1,5 +1,5 @@
 <%@ page import="java.sql.ResultSet" %>
-<%@ page import="com.amerikano.publicwifiinfo.DBManager" %>
+<%@ page import="com.amerikano.publicwifiinfo.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
   String id = request.getParameter("id");
@@ -24,36 +24,36 @@
 
 <html>
 <head>
-    <title>Title</title>
+    <title><%=GlobalConstant.appTitle%>></title>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
-  <body>
-    <jsp:include page="header.jsp"/>
-    <br/>
-    <a>이 북마크를 삭제하시겠습니까?</a>
-    <br/>
-    <table>
-      <form action="delete-bookmark-submit.jsp" method="post">
-        <tr>
-          <th>북마크 이름</th>
-          <td><%=bookmarkGroup%></td>
-        </tr>
-        <tr>
-          <th>와이파이명</th>
-          <td><%=wifiName%></td>
-        </tr>
-        <tr>
-          <th>등록일자</th>
-          <td><%=addDate%></td>
-        </tr>
-        <tr>
-          <td style="text-align: center" colspan="2">
-            <a href="javascript:history.back();">돌아가기</a>
-            <a> | </a>
-            <button name="id" value="<%=id%>">삭제</button>
-          </td>
-        </tr>
-      </form>
-    </table>
-  </body>
+    <body>
+        <jsp:include page="header.jsp"/>
+        <br/>
+        <a>이 북마크를 삭제하시겠습니까?</a>
+        <br/>
+        <table>
+          <form action="delete-bookmark-submit.jsp" method="post">
+            <tr>
+              <th>북마크 이름</th>
+              <td><%=bookmarkGroup%></td>
+            </tr>
+            <tr>
+              <th>와이파이명</th>
+              <td><%=wifiName%></td>
+            </tr>
+            <tr>
+              <th>등록일자</th>
+              <td><%=addDate%></td>
+            </tr>
+            <tr>
+              <td style="text-align: center" colspan="2">
+                <a href="javascript:history.back();">돌아가기</a>
+                <a> | </a>
+                <button name="id" value="<%=id%>">삭제</button>
+              </td>
+            </tr>
+          </form>
+        </table>
+    </body>
 </html>

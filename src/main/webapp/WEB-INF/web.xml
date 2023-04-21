@@ -8,18 +8,10 @@
         <servlet-name>loadWifi</servlet-name>
         <servlet-class>com.amerikano.publicwifiinfo.LoadWifiInfo</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>deleteHistoryServlet</servlet-name>
-        <servlet-class>com.amerikano.publicwifiinfo.DeleteHistoryServlet</servlet-class>
-    </servlet>
 
     <servlet-mapping>
         <servlet-name>loadWifi</servlet-name>
         <url-pattern>/load-wifi</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>deleteHistoryServlet</servlet-name>
-        <url-pattern>/delete-history-servlet</url-pattern>
     </servlet-mapping>
 
 </web-app>

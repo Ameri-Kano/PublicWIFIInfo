@@ -1,9 +1,9 @@
 <%@ page import="java.sql.*" %>
-<%@ page import="com.amerikano.publicwifiinfo.DBManager" %>
+<%@ page import="com.amerikano.publicwifiinfo.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>서울 공공 WIFI 정보</title>
+    <title><%=GlobalConstant.appTitle%></title>
 </head>
 <body onload="deleteBookMarkGroup()">
 <script type="text/javascript">
@@ -13,6 +13,7 @@
             Statement statement;
             String id = application.getAttribute("id").toString();
             application.removeAttribute("id");
+
             try {
                 Class.forName("org.sqlite.JDBC");
                 connection = DriverManager.getConnection("jdbc:sqlite:/" + DBManager.db);
@@ -20,6 +21,7 @@
                 out.println("alert(\"DB 연결 실패\");");
                 out.println("location.href=\"./bookmark-group.jsp\";");
             }
+
             try {
                 statement = connection.createStatement();
                 String sql = "DELETE FROM bookmark_group WHERE id="+id;
@@ -31,7 +33,8 @@
                 e.printStackTrace();
                 out.println("alert(\"삭제 중 오류 발생\");");
                 out.println("location.href=\"./bookmark-group.jsp\";");
-            } %>
+            }
+        %>
     }
 </script>
 </body>

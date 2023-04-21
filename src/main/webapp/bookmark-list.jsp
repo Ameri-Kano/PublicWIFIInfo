@@ -1,11 +1,10 @@
 <%@ page import="java.sql.*" %>
-<%@ page import="com.amerikano.publicwifiinfo.DBManager" %>
+<%@ page import="com.amerikano.publicwifiinfo.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <% String[] columns = {"ID","북마크 이름","와이파이명","등록일자","비고"}; %>
 <html>
 <head>
-    <title></title>
-
+    <title><%=GlobalConstant.appTitle%></title>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
@@ -17,6 +16,7 @@
             <th><%=column%></th>
             <% } %>
         </tr>
+        </thead>
         <%  Connection connection = null;
             Statement statement;
             ResultSet rs;
@@ -40,9 +40,9 @@
             <td style="text-align: center">
                 <a href="delete-bookmark.jsp?id=<%=rs.getString(1)%>">삭제</a>
             </td>
-            <%  } else if(i == 3) {%>
+            <%  } else if(i == 3) { %>
             <td><a href="detail.jsp?mgrNo=<%=rs.getString(3)%>"><%=rs.getString(5)%></a></td>
-            <%  } else  {%>
+            <%  } else { %>
             <td><%=rs.getString(i)%></td>
             <%  }
             } %>
@@ -51,11 +51,10 @@
             connection.close();
         } catch (Exception e) {
             e.printStackTrace(); %>
-        <tr class="empty">
-            <td colspan="5">SQL 처리 과정 오류</td>
-        </tr>
+            <tr class="empty">
+                <td colspan="5">SQL 처리 과정 오류</td>
+            </tr>
         <%  } %>
-        </thead>
     </table>
 </body>
 </html>

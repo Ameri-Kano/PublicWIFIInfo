@@ -23,7 +23,7 @@ public class LoadWifiInfo extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        Connection connection = null;
+        Connection connection;
 
         out.println("<html><body>");
 

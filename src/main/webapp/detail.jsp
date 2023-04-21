@@ -1,5 +1,4 @@
-<%@ page import="com.amerikano.publicwifiinfo.DBManager" %>
-<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.amerikano.publicwifiinfo.*" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.sql.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -28,16 +27,16 @@
 
     application.setAttribute("selectedMgrNo", mgrNo);
 %>
-<!DOCTYPE html>
+
 <html>
 <head>
-    <title></title>
+    <title><%=GlobalConstant.appTitle%></title>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
     <body>
         <jsp:include page="header.jsp"/>
         <form action="./add-bookmark-submit.jsp" method="post">
-            <select name="selectedGroup" onchange="handleChange()">
+            <select name="selectedGroup">
                 <option value=' '>북마크 그룹 선택</option>
                 <% for (int i: bookmarkGroup.keySet()) { %>
                     <option value='<%=bookmarkGroup.get(i)%>'><%=bookmarkGroup.get(i)%></option>
@@ -48,7 +47,7 @@
         <br/>
         <table>
             <% Connection connection = null;
-                Statement statement = null;
+                Statement statement;
 
                 try {
                     Class.forName("org.sqlite.JDBC");
@@ -72,8 +71,7 @@
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-            }
-            %>
+            } %>
         </table>
         <br/>
         <div style="text-align:center;">

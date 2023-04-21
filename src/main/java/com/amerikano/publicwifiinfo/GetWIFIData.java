@@ -4,13 +4,12 @@ import com.google.gson.*;
 import okhttp3.*;
 
 public class GetWIFIData {
-    static final String key = "56615a414379656f34375749725169"; // Open API Key. 다른 곳에 숨길 필요 있음
     public static String responseJson; // API 요청 결과 저장 json String
 
     // API를 이용하여 WIFI 데이터 가져오기
     public static String getWiFIJsonData(int startIndex, int endIndex) {
         String url = "http://openapi.seoul.go.kr:8088/"
-                +key+"/json/TbPublicWifiInfo/"+startIndex+"/"+endIndex+"/";
+                +GlobalConstant.key+"/json/TbPublicWifiInfo/"+startIndex+"/"+endIndex+"/";
 
         try {
             OkHttpClient client = new OkHttpClient();
@@ -38,9 +37,5 @@ public class GetWIFIData {
         PublicWifiInfo publicWifiInfo = gson.fromJson(responseJson, PublicWifiInfo.class);
 
         return publicWifiInfo;
-    }
-
-    public static void main(String[] args) {
-        //if (getWiFIData()) System.out.println(convertJsonString(responseJson).infoTable.result);
     }
 }

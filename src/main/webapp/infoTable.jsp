@@ -1,13 +1,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="com.amerikano.publicwifiinfo.DBManager" %>
+<%@ page import="com.amerikano.publicwifiinfo.*" %>
 <%@ page import="java.sql.*" %>
 <%
     String latitude = request.getParameter("lat");
     String longitude = request.getParameter("lng");
+    String[] columns = {"거리(km)", "관리번호", "자치구", "와이파이명", "도로명주소",
+            "상세주소", "설치위치(층)", "설치유형", "설치기관",
+            "서비스구분", "망종류", "설치년도", "실내외구분",
+            "접속환경", "위도", "경도", "작업일자"};
 %>
 <html>
 <head>
-    <title>Title</title>
+    <title><%=GlobalConstant.appTitle%>></title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/stylesheet.css">
 </head>
 <body>
@@ -23,23 +27,9 @@
     <table>
         <thead>
             <tr>
-                <th>거리(km)</th>
-                <th>관리번호</th>
-                <th>자치구</th>
-                <th>와이파이명</th>
-                <th>도로명주소</th>
-                <th>상세주소</th>
-                <th>설치위치(층)</th>
-                <th>설치유형</th>
-                <th>설치기관</th>
-                <th>서비스구분</th>
-                <th>망종류</th>
-                <th>설치년도</th>
-                <th>실내외구분</th>
-                <th>접속환경</th>
-                <th>위도</th>
-                <th>경도</th>
-                <th>작업일자</th>
+                <% for (String column : columns) { %>
+                <th><%=column%></th>
+                <% } %>
             </tr>
         </thead>
         <%if (latitude == null || longitude == null) { %>
@@ -71,9 +61,9 @@
                     int columnCount = rs.getMetaData().getColumnCount(); %>
                     <tr>
         <%          for (int i = 1; i <= columnCount; i++) {
-                            String currentColumn = rs.getString(i) == null ? "" : rs.getString(i);
+                            String currentColumn = ("null").equals(rs.getString(i)) ? "" : rs.getString(i);
                         if(i == 4) { %>
-                                <td><a href="${pageContext.request.contextPath}/detail.jsp?mgrNo=<%=rs.getString(2)%>"><%=currentColumn%></a></td>
+                                <td><a href="./detail.jsp?mgrNo=<%=rs.getString(2)%>"><%=currentColumn%></a></td>
                         <% } else { %>
                             <td><%=currentColumn%></td>
         <%              }

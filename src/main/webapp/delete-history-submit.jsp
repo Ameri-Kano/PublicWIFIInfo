@@ -1,12 +1,10 @@
-<%@ page import="java.sql.Connection" %>
-<%@ page import="java.sql.DriverManager" %>
-<%@ page import="java.sql.Statement" %>
-<%@ page import="com.amerikano.publicwifiinfo.DBManager" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="com.amerikano.publicwifiinfo.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
+
 <html>
 <head>
-    <title>서울 공공 WIFI 정보</title>
+    <title><%=GlobalConstant.appTitle%></title>
 </head>
 <body onload="deleteHistory()">
     <script type="text/javascript">
@@ -33,7 +31,8 @@
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            } %>
+            }
+            %>
         }
     </script>
 </body>

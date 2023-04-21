@@ -1,9 +1,10 @@
 <%@ page import="java.sql.*" %>
-<%@ page import="com.amerikano.publicwifiinfo.DBManager" %>
+<%@ page import="com.amerikano.publicwifiinfo.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<% String[] columns = {"ID", "위도", "경도", "조회일시", "비고"}; %>
 <html>
 <head>
-    <title>서울 공공 WIFI 정보</title>
+    <title><%=GlobalConstant.appTitle%></title>
     <link rel="stylesheet" href="stylesheet.css"/>
 </head>
 <body>
@@ -11,11 +12,9 @@
     <table>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>위도</th>
-                <th>경도</th>
-                <th>조회일시</th>
-                <th>비고</th>
+                <% for (String column : columns) { %>
+                <th><%=column%></th>
+                <% } %>
             </tr>
         </thead>
 <%      Connection connection = null;
@@ -39,11 +38,13 @@
             <%  for (int i = 1; i <= 5; i++) {
                     if(i == 5) { %>
                 <td style="text-align: center">
-                    <form id="deleteForm" action="./delete-history-submit.jsp" method="post" onsubmit="return confirmSubmit();">
-                        <button id ="deleteButton" name="deleteID" value=<%=rs.getString(1)%>>삭제</button>
+                    <form id="deleteForm" action="./delete-history-submit.jsp"
+                          method="post" onsubmit="return confirmSubmit();">
+                        <button id ="deleteButton" name="deleteID"
+                                value=<%=rs.getString(1)%>>삭제</button>
                     </form>
                 </td>
-                <%  } else  {%>
+                <%  } else { %>
                 <td><%=rs.getString(i)%></td>
                 <%  }
                 } %>

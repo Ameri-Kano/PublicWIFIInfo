@@ -5,7 +5,6 @@ import java.util.StringTokenizer;
 
 public class DBManager {
     public static String db = "/Users/amerikano/IdeaProjects/PublicWIFIInfo/src/main/resources/db.sqlite3";
-    public static boolean isDBEmpty = true;
 
     public static PublicWifiInfo addAllofData() {
         PublicWifiInfo newInfo = GetWIFIData.convertJsonString(GetWIFIData.getWiFIJsonData(1, 1000));
@@ -28,10 +27,8 @@ public class DBManager {
     }
 
     public static boolean insertToDB(PublicWifiInfo newWifiInfo, Connection connection) {
-        //PublicWifiInfo newWifiInfo = addAllofData();
 
         try {
-            //connection = DriverManager.getConnection("jdbc:sqlite:/" + db);
             Statement statement = connection.createStatement();
 
             for (Row r : newWifiInfo.infoTable.row) {
@@ -40,12 +37,10 @@ public class DBManager {
             }
 
             System.out.println("DB에 추가 완료");
-            isDBEmpty = false;
             connection.close();
             return true;
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
             e.printStackTrace();
         }
         return false;
@@ -55,7 +50,7 @@ public class DBManager {
         StringTokenizer st = new StringTokenizer(sql);
         if (!"SELECT".equalsIgnoreCase(st.nextToken())) return null;
 
-        Connection connection = null;
+        Connection connection;
         Statement statement;
 
         try {

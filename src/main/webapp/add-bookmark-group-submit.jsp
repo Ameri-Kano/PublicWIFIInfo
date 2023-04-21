@@ -1,9 +1,9 @@
 <%@ page import="java.sql.*" %>
-<%@ page import="com.amerikano.publicwifiinfo.DBManager" %>
+<%@ page import="com.amerikano.publicwifiinfo.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title><%=GlobalConstant.appTitle%>></title>
 </head>
 <body onload="addBookMark()">
     <script type="text/javascript">

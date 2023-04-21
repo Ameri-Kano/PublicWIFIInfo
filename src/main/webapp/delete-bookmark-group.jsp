@@ -1,5 +1,5 @@
 <%@ page import="java.sql.*" %>
-<%@ page import="com.amerikano.publicwifiinfo.DBManager" %>
+<%@ page import="com.amerikano.publicwifiinfo.*" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String id = request.getParameter("id");
@@ -21,7 +21,7 @@
 
 <html>
 <head>
-    <title></title>
+    <title><%=GlobalConstant.appTitle%></title>
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
