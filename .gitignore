@@ -38,3 +38,5 @@ build/
 .DS_Store
 # 프로젝트 제외 경로
 /out/
+
+/src/main/java/com/amerikano/publicwifiinfo/GlobalConstant.java
