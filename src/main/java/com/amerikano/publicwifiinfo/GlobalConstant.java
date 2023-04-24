@@ -3,7 +3,7 @@ package com.amerikano.publicwifiinfo;
 import java.util.HashMap;
 
 public class GlobalConstant {
-    public static final String key = "56615a414379656f34375749725169";
+    public static final String key = "API_KEY";
     public static final String appTitle = "서울 공공 WIFI 정보";
     public static final HashMap<String, String> siteTitle = new HashMap<>();
 

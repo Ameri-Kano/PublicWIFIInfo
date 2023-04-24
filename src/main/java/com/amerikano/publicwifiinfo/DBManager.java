@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.StringTokenizer;
 
 public class DBManager {
-    public static String db = "/Users/amerikano/IdeaProjects/PublicWIFIInfo/src/main/resources/db.sqlite3";
+    public static String db = "/db.sqlite3";
 
     public static PublicWifiInfo addAllofData() {
         PublicWifiInfo newInfo = GetWIFIData.convertJsonString(GetWIFIData.getWiFIJsonData(1, 1000));
